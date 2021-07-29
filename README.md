@@ -10,22 +10,10 @@ PHP ElasticSearch query，接口模仿 Laravel Eloquent
 
 - 添加依赖
 
-  ```json
-  "require": {
-      "nucarf/php-elastic-query": "dev-main"
-  }
+  ```
+    composer require nucarf/php-elastic-query:dev-main
   ```
 
-- 固定代码库路径
-
-  ```json
-  "repositories": [
-        {
-            "type": "composer",
-            "url":  "http://packagist.org"
-        }
-    ],
-  ```
 
 ## Usage
 
@@ -147,30 +135,11 @@ while ($scrollResult->items->count() > 0) {
 
 ```php
 $query->retriever(function ($ids) {
-    return $corpService->findCorpUsersByIds($ids);
+    return $service->findUsersByIds($ids);
 })
 ```
 
 通过 retriever 设置获取原始数据的回调函数后，`get` 和 `paginate` 查询出的数据会自动通过上面回调查询原始数据。
-
-
-### Lego 用例
-
-用例如下，注意事项：
-
-- **注一**：`paginate` 需在 `$grid` 上调用
-
-```php
-$filter = Lego::filter($query);
-$filter->addSelect('tableName')->options([....])
-
-$grid = Lego::grid($filter);
-$grid->paginate(30); // 注一
-
-return $grid->view();
-```
-
-由于 Lego 内部调用的是 query 的 `paginate` 函数，所以 `retriever` 在 Lego 里也是可以用的。
 
 
 ### 高级用法
