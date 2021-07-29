@@ -23,7 +23,7 @@ class ElasticClient
      *
      * @param string $index 索引名
      *
-     * @return \Danke\Elastic\ElasticQuery
+     * @return \Nucarf\Elastic\ElasticQuery
      */
     public static function query(string $index)
     {

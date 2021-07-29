@@ -363,7 +363,7 @@ class ElasticQuery
      * @param array $fields 仅返回指定字段，默认返回全部
      *
      * @return \Illuminate\Support\Collection
-     * @throws \Danke\Elastic\ElasticException
+     * @throws \Nucarf\Elastic\ElasticException
      * @throws \Throwable
      */
     public function get(array $fields = [])
@@ -387,7 +387,7 @@ class ElasticQuery
      * @param string $scroll
      * @param int $size
      *
-     * @return \Danke\Elastic\ScrollResult
+     * @return \Nucarf\Elastic\ScrollResult
      * @throws \Throwable
      */
     public function getScroll(array $fields = [], $scroll = self::DEFAULT_SCROLL, $size = self::DEFAULT_SCROLL_SIZE)
@@ -449,7 +449,7 @@ class ElasticQuery
      * @param array $fields
      *
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
-     * @throws \Danke\Elastic\ElasticException
+     * @throws \Nucarf\Elastic\ElasticException
      * @throws \Throwable
      */
     public function paginate(int $perPage, int $currentPage = 1, array $fields = [])
@@ -468,7 +468,7 @@ class ElasticQuery
         }
 
         $this->callAfterSearch($items);
-        $total = $results['hits']['total'] ?? 0;
+        $total = isset($results['hits']['total']['value']) ? $results['hits']['total']['value']: 0;
 
         $paginator = new ElasticLengthAwarePaginator($items, $total, $perPage, $currentPage);
 
@@ -546,7 +546,7 @@ class ElasticQuery
      *
      * @param callable $retriever
      *
-     * @return \Danke\Elastic\ElasticQuery
+     * @return \Nucarf\Elastic\ElasticQuery
      */
     public function retriever(callable $retriever)
     {
@@ -577,7 +577,7 @@ class ElasticQuery
      * @param $ids
      *
      * @return \Illuminate\Support\Collection
-     * @throws \Danke\Elastic\ElasticException
+     * @throws \Nucarf\Elastic\ElasticException
      */
     protected function callRetrieve($ids)
     {
