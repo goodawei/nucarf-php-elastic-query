@@ -12,7 +12,7 @@ PHP ElasticSearch query，接口模仿 Laravel Eloquent
 
   ```json
   "require": {
-      "nucarf/php-elastic-query": "dev-main"
+      "danke/php-elastic-query": "dev-master"
   }
   ```
 
@@ -22,7 +22,7 @@ PHP ElasticSearch query，接口模仿 Laravel Eloquent
   "repositories": [
         {
             "type": "composer",
-            "url":  "http://packagist.org"
+            "url":  "http://packagist.danke.life"
         }
     ],
   ```
@@ -38,7 +38,7 @@ PHP ElasticSearch query，接口模仿 Laravel Eloquent
 主要介绍两种使用方式：直接调用、Lego 用例，两者初始化过程是一致的：
 
 ```php
-use Nucarf\Elastic\ElasticClient;
+use Danke\Elastic\ElasticClient;
 
 $query = ElasticClient::query('index_name');
 ```
