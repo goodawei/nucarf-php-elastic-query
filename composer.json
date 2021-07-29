@@ -10,7 +10,10 @@
         }
     ],
     "require": {
-        "php": ">=7.0"
+        "php": ">=7.0",
+        "nucarf/trace-log": "dev-main",
+        "elasticsearch/elasticsearch": "^6.0",
+        "ongr/elasticsearch-dsl": "^6.0"
     },
     "autoload": {
         "psr-4": {
