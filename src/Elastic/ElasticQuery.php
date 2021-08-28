@@ -2,7 +2,7 @@
 
 namespace Nucarf\Elastic;
 
-use Nucarf\TraceLog\TraceLog;
+use Nucarf\Elastic\TraceLog\TraceLog;
 use Elasticsearch\Client;
 use Illuminate\Support\Collection;
 use ONGR\ElasticsearchDSL\Query\Compound\BoolQuery;
