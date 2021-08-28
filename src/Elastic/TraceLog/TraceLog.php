@@ -72,7 +72,7 @@ class TraceLog
         $returnString = $return ? self::convertToString($return, $limit) : null;
         $exceptionString = $exception ? self::convertToString($exception->__toString(), $limit) : null;
 
-        self::$logger->info('NO POINT', [
+        warningLog('NO POINT', [
             'method' => $method,
             'cost' => number_format($cost, 3),
             'args' => $argsString,
